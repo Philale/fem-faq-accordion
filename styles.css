@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root{
+    /* Primary TEXT */
+    --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    /* GRADIENT */
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+    /* Neutral TEXT */
+    --very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    /* DIVIDERS */
+    --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+
+body{
+    font-size: 0.75em;
+    font-family: 'Kumbh Sans', sans-serif;
+    background: linear-gradient(var(--soft-violet), var(--soft-blue));
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main{
+    position: relative;
+    width: min(90%, 700px);
+    background-color: white;
+    border-radius: 20px;
+    margin: 200px 0 50px;
+}
+
+img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% -50%;
+    width: 75%;
+    background-image: url("images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0 100%;
+    padding-bottom: 10%;
+}
+
+h1{
+    text-align: center;
+}
+
+.content{
+    margin-top: 40%;
+    padding: 0 5% 40px;;
+}
+
+.question{
+    border-bottom: 1px solid var(--light-grayish-blue);
+    padding-bottom: 15px;
+}
+
+.question input[type="checkbox"]{
+    display: none;
+}
+
+.question label{
+    display: block;
+    padding: 15px 0 0;
+    transition: padding .3s;
+}
+
+.question label::after{
+    content: url("images/icon-arrow-down.svg");
+    float: right;
+    transition: rotate .3s;
+}
+
+.question p{
+    display: none;
+    margin: 10px 0 0;
+}
+
+.question input[type="checkbox"]:checked ~ p{
+    display: block;
+}
+
+.question input[type="checkbox"]:checked ~ label{
+    font-weight: bold;
+}
+
+.question input[type="checkbox"]:checked ~ label::after{
+    rotate: 180deg;
+}
+
+@media screen and (min-width: 600px) {
+
+    .content{
+        margin: 0;
+        padding-top: 40px;
+        width: 50%;
+        float: right;
+    }
+
+    img{
+        position: absolute;
+        width: 40%;
+        height: 100%;
+        padding: 0;
+        inset: 50% 0 0 100px;
+        background-image: url("images/bg-pattern-desktop.svg");
+        background-size: 200%;
+        background-position: 100% 65%;
+    }
+
+    .question label:hover{
+        padding-left: 5px;
+        padding-right: 5px;
+        color: var(--soft-red);
+    }
+    
+}
